@@ -9,6 +9,19 @@ namespace IronRubyConsole {
             int exitcode = 0;
 
             // bottles
+            Console.WriteLine("basics.rb");
+            Console.WriteLine("----------");
+            try {
+                EmbeddedRuby er1 = new EmbeddedRuby();
+                er1.Mount("Applications");
+                er1.AddAssembly("IREmbeddedLibraries").Mount("Files/ironruby").Mount("Files/site_ruby/1.9.1").Mount("Files/1.9.1");
+                exitcode = er1.Run("basics.rb");
+            } catch (Exception e) {
+                Console.WriteLine(e.Message);
+            }
+            Console.WriteLine();
+
+            // bottles
             Console.WriteLine("bottles.rb");
             Console.WriteLine("----------");
             try {
@@ -50,7 +63,7 @@ namespace IronRubyConsole {
             try {
                 EmbeddedRuby er1 = new EmbeddedRuby();
                 er1.Mount("Applications");
-                er1.AddAssembly("IREmbeddedLibraries").Mount("Files/site_ruby/1.9.1").Mount("Files/1.9.1");
+                er1.AddAssembly("IREmbeddedLibraries").Mount("Files/ironruby").Mount("Files/site_ruby/1.9.1").Mount("Files/1.9.1");
                 exitcode = er1.Run("test_rexml.rb");
             } catch (Exception e) {
                 Console.WriteLine(e.Message);
@@ -62,6 +75,7 @@ namespace IronRubyConsole {
             Console.WriteLine("----------------");
             try {
                 EmbeddedRuby er2 = new EmbeddedRuby();
+
                 er2.AddAssembly("IRTestResources", "Files/Core").Mount("Files/TestUnit");
                 er2.Mount("Applications");
                 exitcode = er2.Run("test_unit_app.rb");

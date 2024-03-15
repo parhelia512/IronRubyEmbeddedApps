@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ExampleApps</RootNamespace>
+    <AssemblyName>ExampleApps</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Applications\basics.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\basics.rb" />
+    <EmbeddedResource Include="Applications\test_unit_app.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\test_mocking_app.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\bottles.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\list_args.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\test_rexml.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\mydoc.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\file_accesses.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IREmbeddedApp\IREmbeddedApp6.csproj" />
+    <ProjectReference Include="..\IREmbeddedLibraries\IREmbeddedLibraries6.csproj" />
+    <ProjectReference Include="..\IRTestResources\IRTestResources6.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="IronRuby">
+      <HintPath>..\..\Working\RTA6CommonDLLs\Release\DLL\IronRuby.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries">
+      <HintPath>..\..\Working\RTA6CommonDLLs\Release\DLL\IronRuby.Libraries.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\..\Working\RTA6CommonDLLs\Release\DLL\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>..\..\Working\RTA6CommonDLLs\Release\DLL\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Serfs">
+      <HintPath>..\..\Working\RTA6CommonDLLs\Release\DLL\Serfs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>..\..\Working\RTA6CommonDLLs\Release\DLL\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

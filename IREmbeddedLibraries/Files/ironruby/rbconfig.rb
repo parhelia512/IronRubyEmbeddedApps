@@ -31,6 +31,7 @@ module RbConfig
   # Set up paths
   if ENV["DLR_ROOT"] then
     # This is a dev environment. See http://wiki.github.com/ironruby/ironruby
+    # TODO: .location might not work in 'Single File' publish
     TOPDIR = File.expand_path(ENV["DLR_BIN"] || System::IO::Path.get_directory_name(System::Reflection::Assembly.get_entry_assembly.location))
     bindir = TOPDIR
     libdir = File.expand_path("Languages/Ruby/StdLib", ENV["DLR_ROOT"])

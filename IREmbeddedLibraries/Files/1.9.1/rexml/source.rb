@@ -148,15 +148,17 @@ module REXML
       # it.
       @buffer = ""
       str = @source.read( 2 ) || ''
+      # DJL added the .force_encoding('ASCII-8BIT') otherwise they
+      # are UTF8 and don't match'
       if encoding
         self.encoding = encoding
-      elsif str[0,2] == "\xfe\xff"
+      elsif str[0,2] == "\xFE\xFF".force_encoding('ASCII-8BIT')
         @line_break = "\000>"
-      elsif str[0,2] == "\xff\xfe"
+      elsif str[0,2] == "\xFF\xFE".force_encoding('ASCII-8BIT')
         @line_break = ">\000"
-      elsif str[0,2] == "\xef\xbb"
+      elsif str[0,2] == "\xEF\xBB".force_encoding('ASCII-8BIT')
         str += @source.read(1)
-        str = '' if (str[2,1] == "\xBF")
+        str = '' if (str[2,1] == "\xBF".force_encoding('ASCII-8BIT'))
         @line_break = ">"
       else
         @line_break = ">"

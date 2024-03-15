@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ExampleApps</RootNamespace>
+    <AssemblyName>ExampleApps</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Applications\basics.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\basics.rb" />
+    <EmbeddedResource Include="Applications\test_unit_app.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\test_mocking_app.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\bottles.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\list_args.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\test_rexml.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\mydoc.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\file_accesses.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IREmbeddedApp\IREmbeddedApp8.csproj" />
+    <ProjectReference Include="..\IREmbeddedLibraries\IREmbeddedLibraries8.csproj" />
+    <ProjectReference Include="..\IRTestResources\IRTestResources8.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="IronRuby">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\IronRuby.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\IronRuby.Libraries.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Serfs">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\Serfs.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

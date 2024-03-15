@@ -40,9 +40,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Serfs, Version=0.1.0.11558, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Working\RTACommonDLLs\Serfs.dll</HintPath>
+    <Reference Include="Serfs">
+      <HintPath>..\..\Working\RTACommonDLLs\Release\Serfs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -65,6 +64,10 @@
     <EmbeddedResource Include="Applications\EmbeddedRuby\AppBoot.rb" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\IREmbeddedApp\IREmbeddedApp.csproj">
       <Project>{252b7e48-4d69-4aaf-ab8f-bca432d0bf2e}</Project>
       <Name>IREmbeddedApp</Name>
@@ -73,10 +76,6 @@
       <Project>{68cbaeda-18cc-4cc0-8555-942890512ef8}</Project>
       <Name>IREmbeddedLibraries</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -87,11 +86,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>rem See https://www.nuget.org/packages/ilmerge
-rem Can't get it to fully resolve
-rem "..\..\packages\ILMerge.3.0.41\tools\net452\ILMerge.exe" /out:merge\IRSinatra.exe IRSinatra.exe IronRuby.dll IronRuby.Libraries.dll IREmbeddedLibraries.dll IREmbeddedApp.dll Microsoft.Dynamic.dll Microsoft.Scripting.dll Serfs.dll
-
-</PostBuildEvent>
+    <PostBuildEvent>if exist \Working\RTACommonDLLs\$(ConfigurationName) xcopy $(TargetPath) \Working\RTACommonDLLs\$(ConfigurationName)\ /y</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

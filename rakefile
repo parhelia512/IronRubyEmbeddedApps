@@ -4,7 +4,6 @@ require 'rake/clean'
 
 CLEAN.include('**/obj')
 CLEAN.include('**/bin/*.pdb')
-CLEAN.include('**/bin')
 
 CLOBBER.include('**/_Resharper.*')
 

@@ -4,7 +4,7 @@
 
 alias irembedded_old_load load
 def load(filename, wrap = false)
-  filename.gsub!(/^\//,'')
+  # No longer necessary? filename.gsub!(/^\//,'')
   irembedded_old_load(filename, wrap)
   rescue LoadError => load_error
     $! = nil

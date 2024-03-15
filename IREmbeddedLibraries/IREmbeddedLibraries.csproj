@@ -872,7 +872,6 @@
   <PropertyGroup>
     <PreBuildEvent>if exist ..\..\prebuild.bat ..\..\prebuild.bat
 if exist "c:\progra~1\TortoiseSVN\bin\SubWCRev.exe" "c:\progra~1\TortoiseSVN\bin\SubWCRev.exe" "$(ProjectDir)\" "$(ProjectDir)Properties\AssemblyInfo_in.cs" "$(ProjectDir)Properties\AssemblyInfo.cs"</PreBuildEvent>
-    <PostBuildEvent>if exist ..\..\postbuild.bat ..\..\postbuild.bat
-if exist \Working\RTACommonDLLs xcopy IREmbeddedLibraries.dll \Working\RTACommonDLLs\ /y</PostBuildEvent>
+    <PostBuildEvent>if exist \Working\RTACommonDLLs\$(ConfigurationName) xcopy $(TargetPath) \Working\RTACommonDLLs\$(ConfigurationName)\DLL\ /y</PostBuildEvent>
   </PropertyGroup>
 </Project>

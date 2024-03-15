@@ -16,15 +16,11 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyCompany("djlSoft")]
 [assembly: AssemblyProduct("IREmbeddedLibraries")]
-[assembly: AssemblyCopyright("Copyright David Lake © 2010-2020")]
+[assembly: AssemblyCopyright("Copyright David Lake © 2010-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("0.2.0.30916")]
-[assembly: AssemblyFileVersion("0.2.0.30916")]
-[assembly: AssemblyInformationalVersionAttribute("0.2.0.30916")]
+[assembly: AssemblyVersion("1.3.0.32687")]
+[assembly: AssemblyFileVersion("1.3.0.32687")]
+[assembly: AssemblyInformationalVersionAttribute("1.3.0.32687")]

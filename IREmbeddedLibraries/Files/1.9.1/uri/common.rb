@@ -718,8 +718,12 @@ module URI
 
   TBLENCWWWCOMP_ = {} # :nodoc:
   TBLDECWWWCOMP_ = {} # :nodoc:
-  HTML5ASCIIINCOMPAT = [Encoding::UTF_7, Encoding::UTF_16BE, Encoding::UTF_16LE,
-    Encoding::UTF_32BE, Encoding::UTF_32LE] # :nodoc:
+  HTML5ASCIIINCOMPAT =  if (IRONRUBY_PLATFORM =~ /Framework/)
+                          [Encoding::UTF_7, Encoding::UTF_16BE, Encoding::UTF_16LE, Encoding::UTF_32BE, Encoding::UTF_32LE] # :nodoc:
+                        else
+                          # Encoding::UTF_7 has been removed for .NET5
+                          [Encoding::UTF_16BE, Encoding::UTF_16LE, Encoding::UTF_32BE, Encoding::UTF_32LE] # :nodoc:
+                        end
 
   # Encode given +str+ to URL-encoded form data.
   #

@@ -16,7 +16,7 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyCompany("djlSoft")]
 [assembly: AssemblyProduct("IREmbeddedApp")]
-[assembly: AssemblyCopyright("Copyright David Lake © 2010-2020")]
+[assembly: AssemblyCopyright("Copyright David Lake © 2010-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -28,6 +28,6 @@ using System.Security.Permissions;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("04947356-1695-4c1c-89a6-b8095f16907f")]
 
-[assembly: AssemblyVersion("0.2.0.$WCREV$")]
-[assembly: AssemblyFileVersion("0.2.0.$WCREV$")]
-[assembly: AssemblyInformationalVersionAttribute("0.2.0.$WCREV$")]
+[assembly: AssemblyVersion("1.3.0.$WCREV$")]
+[assembly: AssemblyFileVersion("1.3.0.$WCREV$")]
+[assembly: AssemblyInformationalVersionAttribute("1.3.0.$WCREV$")]

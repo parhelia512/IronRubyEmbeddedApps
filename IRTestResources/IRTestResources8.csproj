@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IRTestResources</RootNamespace>
+    <AssemblyName>IRTestResources</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Files\TestUnit\test\unit.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\assertionfailederror.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\assertions.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\autorunner.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\collector.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\collector\dir.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\collector\objectspace.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\error.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\failure.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\testcase.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\testresult.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\testsuite.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\ui\console\testrunner.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\ui\testrunnermediator.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\ui\testrunnerutilities.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\util\backtracefilter.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\util\observable.rb" />
+    <EmbeddedResource Include="Files\TestUnit\test\unit\util\procwrapper.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Files\FlexMock\flexmock.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\argument_matchers.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\argument_types.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\base.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\composite.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\core.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\core_class_methods.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\default_framework_adapter.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\deprecated_methods.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\errors.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\expectation.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\expectation_director.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\mock_container.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\noop.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\ordering.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\partial_mock.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\rails.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\rails\view_mocking.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\recorder.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\rspec.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\test_unit.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\test_unit_integration.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\undefined.rb" />
+    <EmbeddedResource Include="Files\FlexMock\flexmock\validators.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Files\Core\optparse.rb" />
+    <EmbeddedResource Include="Files\Core\optparse\date.rb" />
+    <EmbeddedResource Include="Files\Core\optparse\shellwords.rb" />
+    <EmbeddedResource Include="Files\Core\optparse\time.rb" />
+    <EmbeddedResource Include="Files\Core\optparse\uri.rb" />
+    <EmbeddedResource Include="Files\Core\optparse\version.rb" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if exist \Working\RTA8CommonDLLs\$(ConfigurationName) xcopy $(TargetPath) \Working\RTA8CommonDLLs\$(ConfigurationName)\DLL\ /y" />
+  </Target>
+</Project>

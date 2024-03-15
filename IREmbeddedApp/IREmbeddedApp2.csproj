@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IREmbeddedApp</RootNamespace>
+    <AssemblyName>IREmbeddedApp</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedRuby\RequireSupport.rb" />
+    <EmbeddedResource Include="EmbeddedRuby\LoadSupport.rb" />
+    <EmbeddedResource Include="EmbeddedRuby\AutoloadSupport.rb" />
+    <EmbeddedResource Include="EmbeddedRuby\Misc.rb" />
+    <EmbeddedResource Include="EmbeddedRuby\IOSupport.rb" />
+    <EmbeddedResource Include="EmbeddedRuby\FileSupport.rb" />
+    <None Include="Properties\AssemblyInfo_in.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo_in.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IREmbeddedLibraries\IREmbeddedLibraries2.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="IronRuby">
+      <HintPath>..\..\Working\RTA2CommonDLLs\Debug\DLL\IronRuby.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries">
+      <HintPath>..\..\Working\RTA2CommonDLLs\Release\DLL\IronRuby.Libraries.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\..\Working\RTA2CommonDLLs\Debug\DLL\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>..\..\Working\RTA2CommonDLLs\Debug\DLL\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Serfs">
+      <HintPath>..\..\Working\RTA2CommonDLLs\Debug\DLL\Serfs.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if exist \Working\RTA2CommonDLLs\$(ConfigurationName) xcopy $(TargetPath) \Working\RTA2CommonDLLs\$(ConfigurationName)\DLL\ /y" />
+  </Target>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="if exist ..\..\prebuild.bat ..\..\prebuild.bat&#xD;&#xA;if exist c:\progra~1\TortoiseSVN\bin\SubWCRev.exe c:\progra~1\TortoiseSVN\bin\SubWCRev.exe $(ProjectDir) $(ProjectDir)Properties\AssemblyInfo_in.cs $(ProjectDir)Properties\AssemblyInfo.cs" />
+  </Target>
+</Project>

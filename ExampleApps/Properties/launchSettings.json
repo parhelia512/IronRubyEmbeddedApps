@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ExampleApps2": {
+      "commandName": "Project",
+      "commandLineArgs": "arg1 arg2"
+    }
+  }
+}

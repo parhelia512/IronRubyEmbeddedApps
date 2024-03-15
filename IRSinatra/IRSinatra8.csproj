@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>IRSinatra</RootNamespace>
+    <AssemblyName>IRSinatra</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\sinatra_app.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="status.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\Public\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Applications\EmbeddedRuby\AppBoot.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IREmbeddedApp\IREmbeddedApp8.csproj" />
+    <ProjectReference Include="..\IREmbeddedLibraries\IREmbeddedLibraries8.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="IronRuby">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\IronRuby.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\IronRuby.Libraries.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Serfs">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\Serfs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>..\..\Working\RTA8CommonDLLs\Release\DLL\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

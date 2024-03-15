@@ -37,28 +37,20 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IREmbeddedApp, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="IronRuby, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\IREmbeddedApp\obj\Debug\IREmbeddedApp.dll</HintPath>
+      <HintPath>..\..\Working\RTACommonDLLs\Release\IronRuby.dll</HintPath>
     </Reference>
-    <Reference Include="IREmbeddedLibraries, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Dynamic, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\IREmbeddedLibraries\obj\Debug\IREmbeddedLibraries.dll</HintPath>
+      <HintPath>..\..\Working\RTACommonDLLs\Release\Microsoft.Dynamic.dll</HintPath>
     </Reference>
-    <Reference Include="IronRuby">
-      <HintPath>..\..\Working\RTACommonDLLs\IronRuby.dll</HintPath>
-    </Reference>
-    <Reference Include="IronRuby.Libraries, Version=1.1.4.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Scripting, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Working\RTACommonDLLs\IronRuby.Libraries.dll</HintPath>
+      <HintPath>..\..\Working\RTACommonDLLs\Release\Microsoft.Scripting.dll</HintPath>
     </Reference>
-    <Reference Include="IRTestResources, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\IRTestResources\bin\IRTestResources.dll</HintPath>
-    </Reference>
-    <Reference Include="Serfs, Version=0.1.0.11558, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Working\RTACommonDLLs\Serfs.dll</HintPath>
+    <Reference Include="Serfs">
+      <HintPath>..\..\Working\RTACommonDLLs\Release\Serfs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -91,8 +83,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <EmbeddedResource Include="Applications\basics.rb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IREmbeddedApp\IREmbeddedApp.csproj">
+      <Project>{252b7e48-4d69-4aaf-ab8f-bca432d0bf2e}</Project>
+      <Name>IREmbeddedApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IREmbeddedLibraries\IREmbeddedLibraries.csproj">
+      <Project>{68cbaeda-18cc-4cc0-8555-942890512ef8}</Project>
+      <Name>IREmbeddedLibraries</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if exist \Working\RTACommonDLLs\$(ConfigurationName) xcopy $(TargetPath) \Working\RTACommonDLLs\$(ConfigurationName)\ /y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

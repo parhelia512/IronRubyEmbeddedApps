@@ -95,7 +95,8 @@ def load_embedded_string(str, path, wrap = false)
   # TODO: protecting the calling program's global namespace.
   # TODO: In no circumstance will any local variables in the loaded file be propagated to the loading environment. 
   if (str) 
-    eval(str, TOPLEVEL_BINDING, '/' + path, 0)
+    # Why add the /? eval(str, TOPLEVEL_BINDING, '/' + path, 0)
+    eval(str, TOPLEVEL_BINDING, path, 0)
     return true
   end
   false
